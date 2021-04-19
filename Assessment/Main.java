@@ -1,0 +1,40 @@
+package Assessment;
+import java.util.Map;
+import java.util.Scanner;
+import java.util.TreeMap;
+
+public class Main {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+	
+		    Scanner sc=new Scanner(System.in);
+		    System.out.println("Enter the input string");
+		 String s1=sc.nextLine().replaceAll(" ","");
+		    Map<Character,Integer> map=new TreeMap<Character,Integer>();
+
+		    for(int i = 0; i < s1.length(); i++){
+		       char c = s1.charAt(i);
+		       Integer val = map.get(new Character(c));
+		       if(val != null){
+		         map.put(c, new Integer(val + 1));
+		       }else{
+		         map.put(c,1);
+		       }
+		    }           
+
+		    for(Map.Entry<Character,Integer> en:map.entrySet()){
+		        int count=en.getValue();
+		        System.out.printf("%c : ",en.getKey());
+		        for(int i=0;i<count;i++)
+		        System.out.printf("*");
+
+		        System.out.printf("\n");
+		    }
+
+
+		    }
+		
+	}
+
+
