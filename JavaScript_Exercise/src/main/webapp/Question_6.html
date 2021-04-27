@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Validate Form</title>
+</head>
+<script type="text/javascript">
+function hasNumbers(str){
+	  var regexp = /d/g;
+	  return regexp.test(str);
+	};
+
+function validate(name,pass){
+	var regex = /^[A-Za-z]+$/
+	
+	var isValid = regex.test(name.value);
+	var min=2;
+	var max=30;
+	
+	if(name.value==null ||name.value.length==0){
+		alert("Name cannot be empty!");
+		name.focus();
+		return false;
+	}
+	/*else if(!hasNumbers(name.value)) {
+	    alert('Name cannot contain numbers!');
+	    name.focus();
+	    return false;
+	}*/
+
+	else if(!isValid){
+		alert("Name cannot have numbers and special characters!");
+	    name.focus() ;
+		return false;
+	}
+	else if(name.value.length<min || name.value.length>max)
+		{
+		alert("Name length should be between 2 to 30 characters!");
+		name.focus() ;
+		return false;
+		}
+	else if(pass.value==null || pass.value.length==0){
+		alert("Password cannot be empty!");
+		pass.focus() ;
+		return false;
+	}
+	alert("Form Submitted!");
+	return true;
+	
+}
+</script>
+<body>
+<form name = "form" onsubmit="validate()">
+<label>Name:</label><br>
+<input type="text"  name = "name"><br>
+<label>Password:</label><br>
+<input type = "password" name = "pass"><br><br>
+<input type = "submit" onclick="validate(document.form.name,document.form.pass)" value = "Submit">
+</form>
+</body>
+</html>

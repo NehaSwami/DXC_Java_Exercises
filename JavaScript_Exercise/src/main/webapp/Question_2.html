@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<script type="text/javascript">
+function textTruncate(str,length,ending){
+	if(length==null){
+		length=100;
+	}
+	if(ending==null){
+		ending="...";
+	}
+	if(str.length>length){
+		return str.substring(0,length-ending.length)+ending;
+	}
+	else{
+		return str;
+	}
+	
+}
+</script>
+<body>
+<script type="text/javascript">
+function text_truncate(){
+	var str = prompt("Enter the string", "We are doing JS String exercise");
+	var length = prompt("Enter length","0");
+	var ending = prompt("Enter ending","...");
+
+	if(str !=null && str!=" " && length!=null && length!=" " && ending!=null && ending!=" "){
+		truncated_text=textTruncate(str,length,ending);
+		document.write("Truncated text is "+truncated_text);
+	}
+}
+</script>
+<input type="button" onclick="text_truncate()" value="Truncate text!">
+</body>
+</html>

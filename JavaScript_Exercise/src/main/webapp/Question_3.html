@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<script type="text/javascript">
+function secondGreatestLowest(size,arr_num){
+	
+	arr_num.sort(function(x,y){
+		return x-y;
+	});
+	
+	var uniq = [arr_num[0]];
+	var result=[];
+	
+	for(var j=1; j<size;j++){
+		if(arr_num[j-1]!==arr_num[j]){
+			uniq.push(arr_num[j]);
+		}
+	}
+	
+	result.push(uniq[1],uniq[uniq.length-2]);
+	return result.join(',');	
+}
+</script>
+<body>
+<script type="text/javascript">
+function second_Greatest_Lowest(){
+	var arr_num=[];
+	var size = prompt("Enter size of the array","0");
+	for(var i=0; i<size; i++)
+	{
+	arr_num[i] = prompt("Enter the array element"+(i+1));
+	}
+	if(arr_num!=null && arr_num!=" "){
+		array = secondGreatestLowest(size, arr_num);
+		document.write("Second lowest and greatest number is: "+array);
+	}
+}
+
+</script>
+<input type="button" onclick="second_Greatest_Lowest()" value="Find second lowest and greatest number">
+</body>
+</html>

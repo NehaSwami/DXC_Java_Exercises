@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Compare Dates</title>
+</head>
+<script type="text/javascript">
+function compareDates(date1,date2){
+	if(date1>date2){
+		return ("Date1 > Date2");
+	}	
+	else if(date1<date2){
+		return ("Date1 < Date2");
+	}
+	else
+		{
+		return ("Date1 = Date2");
+		}
+}
+function compare_dates(){
+	var d1 = document.getElementById("date1").value;
+	var d2 = document.getElementById("date2").value;
+
+	var date1 = new Date(d1);
+	var date2 = new Date(d2);
+	
+	//var date1 = document.getElementById("date1").value;
+	//var date2 = document.getElementById("date2").value;
+	str = compareDates(date1,date2);
+	document.write(str);
+	
+}
+</script>
+<body>
+Enter Date1:<input id="date1" placeholder="MM/DD/YYYY"><br/><br/>
+Enter Date2:<input id="date2" placeholder="MM/DD/YYYY"><br/><br/>
+<button onclick="compare_dates()"> Compare Dates</button> 
+</body>
+</html>

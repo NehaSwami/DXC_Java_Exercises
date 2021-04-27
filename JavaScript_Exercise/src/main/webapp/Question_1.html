@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Search Word</title>
+
+<script type="text/javascript">
+function searchword(text, word){
+    
+    var x = 0, y=0;
+   
+    for (i=0;i< text.length;i++)
+        {
+        if(text[i] == word[0])
+            {
+            for(j=i;j< i+word.length;j++)
+               {
+                if(text[j]==word[j-i])
+                  {
+                    y++;
+                  }
+                if (y==word.length){
+                    x++;
+                }
+            }
+            y=0;
+        }
+    }
+   return "'"+word+"' was found "+x+" times.";
+}
+</script>
+
+</head>
+<body>
+<script type="text/javascript">
+function search_word(){
+	var a = prompt("Enter text", "The quick brown fox");
+	var b = prompt("Enter word", "fox");
+	if(a !=null && a!=" " && b!=null && b!=" "){
+		document.write(searchword(a,b));
+	}
+}
+
+//document.write(search_word('The quick brown fox', 'fox'));
+//document.write(search_word('aa, bb, cc, dd, aa', 'aa'));
+</script>
+<input type="button" onclick="search_word()" value="Search word!">
+</body>
+</html>
