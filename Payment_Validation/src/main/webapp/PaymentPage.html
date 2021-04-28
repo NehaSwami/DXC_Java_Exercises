@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Payment Details</title>
+</head>
+<body>
+<body>
+<form name="myform" action="Success.html" method="post">
+    <h2>Payment information</h2>
+    <p>
+      <label for="card">
+        <span>Card type:</span>
+      </label>
+      <select id="card" name="usercard">
+        <option value="visa">Visa</option>
+        <option value="mc">Mastercard</option>
+        <option value="amex">American Express</option>
+      </select>
+    </p>
+    <p>
+      <label for="number">
+        <span>Card number:</span>
+        <strong><abbr title="required">*</abbr></strong>
+      </label>
+      <input type="tel" id="number" name="cardnumber">
+    </p>
+    <p>
+      <label for="date">
+        <span>Expiration date:</span>
+        <strong><abbr title="required">*</abbr></strong>
+        <em>Formatted as MM/DD/YYYY</em>
+      </label>
+      <input type="date" name="expiration" id="date">
+    </p>
+   <input type="submit" value="Validate the payment">
+ </form>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Login here</title>
+</head>
+<body>
+<form name="form" action="PaymentPage.html" method="post">
+  <p>Please select title:</p>
+  <input type="radio" id="mr" name="Mr" value="Mr">
+  <label for="mr">Mr</label><br/>
+  <input type="radio" id="miss" name="Miss" value="Miss">
+  <label for="miss">Miss</label><br/>
+  <input type="radio" id="mrs" name="Mrs" value="Mrs">
+  <label for="mrs">Mrs</label><br/>
+  
+  <label for="name">Enter Name </label>
+  <input type="text" id="name" name="name" required><br/><br/>
+  
+  <label for="email">Enter Email </label>
+  <input type="email" id="email" name="email" required><br/><br/>
+  
+  <label for="password">Enter Password </label>
+  <input type="password" id="password" name="password" minlength="6" pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).*$" title="Please include at least 1 uppercase character, 1 lowercase character, and 1 number." required><br/><br/>
+  
+  <input type = "submit" value = "Submit">
+  
+</form>
+
+</body>
+</html>
