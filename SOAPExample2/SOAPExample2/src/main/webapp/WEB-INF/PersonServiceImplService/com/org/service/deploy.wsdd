@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Use this file to deploy some handlers/chains and services      --><!-- Two ways to do this:                                           --><!--   java org.apache.axis.client.AdminClient deploy.wsdd          --><!--      after the axis server is running                          --><!-- or                                                             --><!--   java org.apache.axis.utils.Admin client|server deploy.wsdd   --><!--      from the same directory that the Axis engine runs         --><deployment xmlns="http://xml.apache.org/axis/wsdd/" xmlns:java="http://xml.apache.org/axis/wsdd/providers/java">
+
+  <!-- Services from PersonServiceImplService WSDL service -->
+
+  <service name="PersonServiceImpl" provider="java:RPC" style="document" use="literal">
+      <parameter name="wsdlTargetNamespace" value="http://service.org.com"/>
+      <parameter name="wsdlServiceElement" value="PersonServiceImplService"/>
+      <parameter name="schemaQualified" value="http://service.org.com,http://soap.org.com"/>
+      <parameter name="wsdlServicePort" value="PersonServiceImpl"/>
+      <parameter name="className" value="com.org.service.PersonServiceImpl"/>
+      <parameter name="wsdlPortType" value="PersonServiceImpl"/>
+      <parameter name="typeMappingVersion" value="1.2"/>
+      <operation xmlns:retNS="http://service.org.com" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="addPerson" qname="addPerson" returnQName="retNS:addPersonReturn" returnType="rtns:boolean" soapAction="">
+        <parameter xmlns:pns="http://service.org.com" xmlns:tns="http://soap.org.com" qname="pns:p" type="tns:Person"/>
+      </operation>
+      <operation xmlns:retNS="http://service.org.com" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="deletePerson" qname="deletePerson" returnQName="retNS:deletePersonReturn" returnType="rtns:boolean" soapAction="">
+        <parameter xmlns:pns="http://service.org.com" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:id" type="tns:int"/>
+      </operation>
+      <operation xmlns:retNS="http://service.org.com" xmlns:rtns="http://soap.org.com" name="getPerson" qname="getPerson" returnQName="retNS:getPersonReturn" returnType="rtns:Person" soapAction="">
+        <parameter xmlns:pns="http://service.org.com" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:id1" type="tns:int"/>
+      </operation>
+      <operation xmlns:retNS="http://service.org.com" xmlns:rtns="http://service.org.com" xmlns:tns="http://service.org.com" name="getAllPersons" qname="getAllPersons" returnQName="retNS:getAllPersonsReturn" returnType="rtns:&gt;getAllPersonsReturn" returnItemQName="tns:item" soapAction="">
+      </operation>
+      <parameter name="allowedMethods" value="deletePerson getPerson getAllPersons addPerson"/>
+
+      <arrayMapping xmlns:ns="http://service.org.com" xmlns:cmp-ns="http://soap.org.com" qname="ns:&gt;getAllPersonsReturn" type="java:com.org.soap.Person[]" innerType="cmp-ns:Person" encodingStyle=""/>
+      <typeMapping xmlns:ns="http://soap.org.com" qname="ns:Person" type="java:com.org.soap.Person" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle=""/>
+  </service>
+</deployment>
